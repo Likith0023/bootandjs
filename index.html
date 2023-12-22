@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing Page</title>
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom CSS for additional styling */
+        .pricing-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+
+        .pricing-card .card-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card h2 {
+            margin-bottom: auto;
+        }
+
+        .signup-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        /* Highlight class for pricing cards */
+        .highlighted {
+            border: 2px solid red;
+            /* Red border for highlighted cards */
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">COMPANY</a>
+            <button class="navbar-toggler" type="button" class="btn-dark" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div>
+        <h1>pricing</h1>
+    </div>
+    <div>
+        <p>Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built
+            with default Bootstrap components and utilities with little customization.</p>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Pricing Card 1 -->
+            <div class="col-lg-4">
+                <div class="card pricing-card h-100">
+                    <div class="card-header">
+                        <h3>FREE</h3>
+                    </div>
+                    <div class="card-body">
+                        <h2>$10</h2>
+                        <ul class="list-unstyled">
+                            <li>10 users included</li>
+                            <li>2 GB of storage</li>
+                            <li>Email support </li>
+                            <li> Help center access </li>
+
+                        </ul>
+                        <button class="btn btn-primary">SIGNUP FOR FREE</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Card 2 -->
+            <div class="col-lg-4">
+                <div class="card pricing-card h-100">
+                    <div class="card-header">
+                        <h3>PRO</h3>
+                    </div>
+                    <div class="card-body">
+                        <h2>$20</h2>
+                        <ul class="list-unstyled">
+                            <li>20 users included </li>
+                            <li>10 GB of storage </li>
+                            <li>Priority email support </li>
+                            <li>Help center access </li>
+                        </ul>
+                        <button class="btn btn-primary">GET STARTED</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Card 3 -->
+            <div class="col-lg-4">
+                <div class="card pricing-card h-100">
+                    <div class="card-header">
+                        <h3>ENTERPRICES</h3>
+                    </div>
+                    <div class="card-body">
+                        <h2>$30</h2>
+                        <ul class="list-unstyled">
+                            <li>30 users included
+                            </li>
+                            <li>15 GB of storage
+                            </li>
+                            <li>Phone and email support
+                            </li>
+                            <li>Help center access
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary">CONTACT US</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Section -->
+    <div class="signup-section">
+        <div class="container">
+            <h2>Sign Up for Updates</h2>
+            <form>
+                <div class="form-row align-items-center justify-content-center">
+                    <div class="col-auto">
+                        <label class="sr-only" for="email">Email</label>
+                        <input type="email" class="form-control mb-2" id="email" placeholder="Your Email">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-2">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- ... (Your existing content: navbar, cards, and signup section) -->
+
+    <!-- Slider for User Count -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <input type="range" class="custom-range" min="0" max="30" value="0" id="userCountSlider">
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.getElementById('userCountSlider');
+            const pricingCards = document.querySelectorAll('.pricing-card');
+
+            slider.addEventListener('input', function () {
+                const userCount = parseInt(this.value);
+
+                // Remove highlighting from all cards
+                pricingCards.forEach(card => {
+                    card.classList.remove('highlighted');
+                });
+
+                // Highlight the corresponding plan based on user count
+                if (userCount >= 0 && userCount < 10) {
+                    pricingCards[0].classList.add('highlighted');
+                } else if (userCount >= 10 && userCount < 20) {
+                    pricingCards[1].classList.add('highlighted');
+                } else if (userCount >= 20 && userCount <= 30) {
+                    pricingCards[2].classList.add('highlighted');
+                }
+            });
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- ... (Previous HTML code remains unchanged) -->
+
+    <!-- Form to display on clicking any pricing card -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card form-card" style="display: none;">
+                    <div class="card-body">
+                        <h3>Order Form</h3>
+                        <form id="orderForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Your Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="order">Order</label>
+                                <input type="text" class="form-control" id="order" placeholder="Your Order">
+                            </div>
+                            <div class="form-group">
+                                <label for="comments">Comments</label>
+                                <textarea class="form-control" id="comments" rows="3"
+                                    placeholder="Any additional comments"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            const formCard = document.querySelector('.form-card');
+
+            // Function to toggle form visibility
+            function toggleForm() {
+                formCard.style.display = (formCard.style.display === 'none') ? 'block' : 'none';
+            }
+
+            // Event listener for each pricing card
+            pricingCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    toggleForm();
+                });
+            });
+
+            // Event listener to hide the form on form submission
+            document.getElementById('orderForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                toggleForm();
+                // Additional logic to handle form submission can be added here
+            });
+        });
+    </script>
+
+    <script src="submit.js"></script>
+
+</body>
+
+</html>
