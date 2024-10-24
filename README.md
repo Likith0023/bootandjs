@@ -12,7 +12,7 @@ Dynamic Filtering: As users adjust the slider, the displayed cards update in rea
 Responsive Design: The application is fully responsive, ensuring a seamless experience across devices and screen sizes.
 
 Demo
-You can view a live demo of the application here: Card Price Filter Demo
+You can view a live demo of the application here:https://incredible-fairy-fabfb8.netlify.app/?
 
 Getting Started
 Prerequisites
